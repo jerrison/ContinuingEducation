@@ -88,7 +88,7 @@ GROUP BY
 # List the continents that have a total population of at least 100 million.
 ###############################################################################
 
-SELECT
+  SELECT
   continent
 FROM world
 GROUP BY continent 
