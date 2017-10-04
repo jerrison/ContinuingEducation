@@ -1,0 +1,116 @@
+###############################################################################
+# Title: join_tutorial.sql
+# Author: Jerrison Li
+# Date: Oct 3, 2017
+# Version: 1.0
+###############################################################################
+
+###############################################################################
+# 1
+# The first example shows the goal scored by a player with the last name 
+# 'Bender'. The * says to list all the columns in the table - a shorter way of 
+# saying matchid, teamid, player, gtime
+# 
+# Modify it to show the matchid and player name for all goals scored by 
+# Germany. To identify German players, check for: teamid = 'GER'
+###############################################################################
+
+SELECT
+  matchid,
+  player
+FROM goal
+  WHERE teamid = 'GER'
+
+###############################################################################
+# 2
+# Show id, stadium, team1, team2 for just game 1012
+###############################################################################
+
+SELECT
+  id,
+  stadium,
+  team1,
+  team2
+FROM game
+  WHERE id = 1012
+
+###############################################################################
+# 3
+# Modify it to show the player, teamid, stadium and mdate for every German 
+# goal.
+###############################################################################
+
+SELECT
+  g.player,
+  g.teamid,
+  a.stadium,
+  a.mdate
+FROM goal g
+INNER JOIN game a
+    ON g.matchid = a.id
+  WHERE g.teamid = 'GER'
+
+
+###############################################################################
+# 4
+# Show the team1, team2 and player for every goal scored by a player called 
+# Mario player LIKE 'Mario%'
+###############################################################################
+
+SELECT
+  a.team1,
+  a.team2,
+  g.player
+FROM goal g
+INNER JOIN game a
+    ON g.matchid = a.id
+  WHERE g.player LIKE 'Mario%'
+
+###############################################################################
+# 5
+# Show player, teamid, coach, gtime for all goals scored in the first 10 
+# minutes gtime<=10
+###############################################################################
+
+SELECT
+  g.player,
+  g.teamid,
+  e.coach,
+  g.gtime  
+FROM goal g
+INNER JOIN eteam e
+    ON g.teamid = e.id
+  WHERE g.gtime <= 10
+
+###############################################################################
+# 6.
+# List the the dates of the matches and the name of the team in which 'Fernando 
+# Santos' was the team1 coach.
+###############################################################################
+
+SELECT
+  g.mdate,
+  e.teamname
+FROM game g
+INNER JOIN eteam e
+    ON g.team1 = e.id
+  WHERE e.coach = 'Fernando Santos'
+
+###############################################################################
+# 7
+# List the player for every goal scored in a game where the stadium was 
+# 'National Stadium, Warsaw'
+###############################################################################
+
+SELECT
+  a.player
+FROM goal a
+INNER JOIN game b
+    ON a.matchid = b.id
+  WHERE b.stadium = 'National Stadium, Warsaw'
+
+###############################################################################
+# 8.
+# Instead show the name of all players who scored a goal against Germany.
+###############################################################################
+
