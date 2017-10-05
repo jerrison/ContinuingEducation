@@ -99,5 +99,144 @@ INNER JOIN stops stopa
     ON a.stop       =   stopa.id
 INNER JOIN stops stopb 
     ON b.stop       =   stopb.id
-  WHERE stopa.name  = 'Fairmilehead'
-  AND   stopb.name  = 'Tollcross'
+  WHERE stopa.name  = 'Craiglockhart'
+  AND   stopb.name  = 'London Road'
+
+###############################################################################
+# 7
+# Give a list of all the services which connect stops 115 and 137 ('Haymarket' 
+# and 'Leith')
+###############################################################################
+
+SELECT DISTINCT
+  r2.company,
+  r1.num  
+FROM  route r1,
+      route r2
+  WHERE r1.num      = r2.num
+  AND   r1.company  = r2.company
+  AND   r1.stop     = 115
+  AND   r2.stop     = 137
+
+###############################################################################
+# 8
+# Give a list of the services which connect the stops 'Craiglockhart' and 
+# 'Tollcross'
+###############################################################################
+
+SELECT DISTINCT
+  r2.company,
+  r1.num  
+FROM        route r1
+INNER JOIN  route r2
+    ON  r1.num      = r2.num
+    AND r1.company  = r2.company
+INNER JOIN  stops stop1
+    ON  r1.stop     = stop1.id
+INNER JOIN  stops stop2
+    ON  r2.stop     = stop2.id
+  WHERE stop1.name  = 'Craiglockhart'
+  AND   stop2.name  = 'Tollcross'
+
+
+
+SELECT DISTINCT
+  r2.company,
+  r1.num  
+FROM        route r1
+INNER JOIN  route r2
+    ON  r1.num      = r2.num
+    AND r1.company  = r2.company
+INNER JOIN  stops stop1
+    ON  r1.stop     = stop1.id
+    AND stop1.name  = 'Craiglockhart'
+INNER JOIN  stops stop2
+    ON    r2.stop     = stop2.id
+    AND   stop2.name  = 'Tollcross'
+
+###############################################################################
+# 9
+# Give a distinct list of the stops which may be reached from 'Craiglockhart' 
+# by taking one bus, including 'Craiglockhart' itself, offered by the LRT 
+# company. Include the company and bus no. of the relevant services.
+###############################################################################
+
+
+
+SELECT DISTINCT
+  stop2.name,
+  r1.company,
+  r1.num
+FROM        route r1
+INNER JOIN  route r2
+    ON    r1.num      =   r2.num
+    AND   r1.company  =   r2.company
+    #AND   r1.pos      <=  r2.pos
+INNER JOIN  stops stop1
+    ON    r1.stop     =   stop1.id
+INNER JOIN  stops stop2
+    ON    r2.stop     =   stop2.id    
+  WHERE stop1.name = 'Craiglockhart'
+  AND   r1.company = 'LRT'
+
+
+/*#############################################################################
+10
+Find the routes involving two buses that can go from Craiglockhart to 
+Sighthill.
+Show the bus no. and company for the first bus, the name of the stop for the 
+transfer, and the bus no. and company for the second bus.
+
+Hint
+Self-join twice to find buses that visit Craiglockhart and Sighthill, then join 
+those on matching stops.
+
+So they share that transfer stop, bus one must begin in Craiglockhart and end
+in transfer stop.  Bus 2 begins in transfer stop and ends in Sighthill.
+#############################################################################*/
+
+
+SELECT
+
+FROM        route r1
+INNER JOIN  (SELECT
+              *
+            FROM route r2
+              WHERE 
+
+INNER JOIN  stops stop1
+    ON    r1.stop     =   stop1.id
+INNER JOIN  stops stop2
+    ON    r2.stop     =   stop2.id    
+  WHERE stop1.name = 'Craiglockhart'
+
+
+SELECT
+  t1.num,
+  t1.company,
+  t1.name,
+  t2.num,
+  t2.company
+FROM
+
+(SELECT
+  r.num,
+  r.company,
+  s.name
+FROM route r
+INNER JOIN stops s
+    ON r.stop = s.id
+  WHERE s.name = 'Craiglockhart') AS t1
+
+INNER JOIN 
+
+(SELECT
+  r.num,
+  r.company,
+  s.name
+FROM route r
+INNER JOIN stops s
+    ON r.stop = s.id
+  WHERE s.name = 'Sighthill')   AS t2
+
+    ON t1.name = t2.name
