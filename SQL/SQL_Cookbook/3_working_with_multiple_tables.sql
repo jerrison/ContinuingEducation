@@ -140,13 +140,32 @@ FROM dept
         
 -- In SQL, "TRUE OR NULL" is TRUE, but "FALSE or NULL" is NULL!  
 
+SELECT
+  d.deptno
+FROM dept d
+  WHERE NOT EXISTS(
+    SELECT
+      1
+    FROM emp e
+      WHERE d.deptno = e.deptno);
 
 
 
 
 
-
-
+SELECT
+  d.deptno
+FROM dept d
+  WHERE NOT EXISTS(
+    SELECT
+      1
+    FROM new_dept nd
+      WHERE d.deptno = nd.deptno);
+      
+      
+/******************************************************************************
+3.5 retrieving rows from one table that do not correspond to rows in another
+******************************************************************************/
 
 
 
