@@ -41,6 +41,7 @@ VALUES
 CROSS JOIN
 ******************************************************************************/
 
+-- explicit
 SELECT 
   *
 FROM employee
@@ -72,3 +73,69 @@ ORDER BY
   departmentID;
 
 
+-- implicit
+SELECT 
+  *
+FROM employee, department
+ORDER BY 
+  department.DepartmentID,
+  employee.DepartmentID;  
+  
+  
+/******************************************************************************
+INNER JOIN
+******************************************************************************/  
+-- I will try to always use the explicit form of the joins to maintain clarity
+
+SELECT
+  e.LastName,
+  e.DepartmentID,
+  d.DepartmentName
+FROM employee e
+INNER JOIN department d
+    ON e.DepartmentID = d.DepartmentID;
+
+/******************************************************************************
+LEFT OUTER JOIN
+******************************************************************************/
+
+SELECT *
+FROM employee e
+LEFT OUTER JOIN department d
+    ON e.departmentid = d.departmentid;
+    
+    
+/******************************************************************************
+RIGHT OUTER JOIN
+******************************************************************************/        
+  
+SELECT *
+FROM employee e
+RIGHT OUTER JOIN department d
+    ON e.departmentid = d.departmentid;  
+  
+/******************************************************************************
+FULL OUTER JOIN
+******************************************************************************/          
+-- Full outer join is not supported in MySQL
+SELECT *
+FROM employee e
+LEFT OUTER JOIN department d
+    ON e.departmentid = d.departmentid
+
+UNION
+  
+SELECT *
+FROM employee e
+RIGHT OUTER JOIN department d
+    ON e.departmentid = d.departmentid;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
