@@ -381,7 +381,7 @@ SELECT  deptno,
         SUM(sal)  AS total_sal,
         SUM(bonus) AS total_bonus
 FROM (SELECT  e.empno,
-              e.ename,
+              e.etname,
               e.sal,
               e.deptno,
               e.sal*CASE  WHEN eb.type IS NULL  THEN 0

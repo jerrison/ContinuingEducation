@@ -29,3 +29,30 @@ FROM (
 ;
 
 -- 1.7 Concatenating Column Values
+
+SELECT  CONCAT(ename, ' works as a ', job) AS msg
+FROM    emp
+  WHERE deptno = 10
+;
+
+-- 1.8 Using Conditional Logic in a SELECT Statement
+
+SELECT  ename,
+        sal,
+        CASE
+          WHEN sal <= 2000 THEN 'UNDERPAID'
+          WHEN sal >= 4000 THEN 'OVERPAID'
+          ELSE                  'OK'
+        END   AS status
+FROM emp
+;
+
+
+-- 1.9 Limiting the Number of Rows Returned
+
+SELECT  *
+FROM    emp
+LIMIT 5
+;
+
+
