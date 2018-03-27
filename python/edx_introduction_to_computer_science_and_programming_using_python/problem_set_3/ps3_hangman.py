@@ -8,7 +8,7 @@
 # (so be sure to read the docstrings!)
 
 import random
-
+import string
 WORDLIST_FILENAME = "words.txt"
 
 
@@ -69,6 +69,13 @@ def getGuessedWord(secretWord, lettersGuessed):
       what letters in secretWord have been guessed so far.
     '''
     # FILL IN YOUR CODE HERE...
+    s = ""
+    for letter in secretWord:
+        if letter in lettersGuessed:
+            s += letter
+        else:
+            s += "_"
+    return s.replace("", " ")[1: -1]
 
 
 def getAvailableLetters(lettersGuessed):
@@ -78,7 +85,11 @@ def getAvailableLetters(lettersGuessed):
       yet been guessed.
     '''
     # FILL IN YOUR CODE HERE...
-
+    s = string.ascii_lowercase
+    for letter in s:
+        if letter in lettersGuessed:
+            s = s.replace(letter, "")
+    return s
 
 def hangman(secretWord):
     '''
@@ -101,7 +112,7 @@ def hangman(secretWord):
     Follows the other limitations detailed in the problem write-up.
     '''
     # FILL IN YOUR CODE HERE...
-
+    
 
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
