@@ -1,5 +1,6 @@
 # Hangman game
 #
+# test comment
 
 # -----------------------------------
 # Helper code
