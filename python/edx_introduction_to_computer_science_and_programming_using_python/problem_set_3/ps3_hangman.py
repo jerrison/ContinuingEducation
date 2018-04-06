@@ -27,7 +27,7 @@ def loadWords():
     line = inFile.readline()
     # wordlist: list of strings
     wordlist = line.split()
-    print("  ", len(wordlist), "words loaded.")
+    print(len(wordlist), "words loaded.")
     return wordlist
 
 
@@ -115,10 +115,56 @@ def hangman(secretWord):
     '''
     # FILL IN YOUR CODE HERE...
 
+    print("Welcome to the game, Hangman!\n"
+          "I am thinking of a word that is "
+          + str(len(secretWord))
+          + " letters long.")
+
+    lettersGuessed = []
+    numbersGuesses = 8
+
+    while True:
+        print("--------------------\n"
+              "You have "
+              + str(numbersGuesses)
+              + " guesses left.\n"
+
+              "Available letters: "
+              + getAvailableLetters(lettersGuessed))
+
+        guess = input("Please guess a letter: ").lower()  # ask for user input
+
+        if guess in lettersGuessed:
+            print("Oops! You've already guessed that letter: "
+                  + getGuessedWord(secretWord, lettersGuessed))
+        elif guess in secretWord:
+            lettersGuessed.append(guess)
+            print("Good guess: "
+                  + getGuessedWord(secretWord, lettersGuessed))
+        else:
+            lettersGuessed.append(guess)
+            numbersGuesses -= 1
+            print("Oops! That letter is not in my word: "
+                  + getGuessedWord(secretWord, lettersGuessed))
+
+        # check win/lose condition
+        if isWordGuessed(secretWord, lettersGuessed):
+            print("--------------------\n"
+                  "Congratulations, you won!")
+            break
+        elif numbersGuesses == 0:
+            print("--------------------\n"
+                  "Sorry, you ran out of guesses. The word was "
+                  + secretWord
+                  + ".")
+            break
+        else:
+            pass
 
 # When you've completed your hangman function, uncomment these two lines
 # and run this file to test! (hint: you might want to pick your own
 # secretWord while you're testing)
 
-# secretWord = chooseWord(wordlist).lower()
-# hangman(secretWord)
+
+secretWord = chooseWord(wordlist).lower()
+hangman(secretWord)
