@@ -88,7 +88,8 @@ def getWordScore(word, n):
     return score
 
 #
-# Problem #2: Make sure you understand how this function works and what it does!
+# Problem #2: Make sure you understand how this function works and what it
+# does!
 #
 
 
