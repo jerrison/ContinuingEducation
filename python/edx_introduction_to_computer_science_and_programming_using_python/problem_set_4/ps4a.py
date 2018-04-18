@@ -161,7 +161,13 @@ def updateHand(hand, word):
     hand: dictionary (string -> int)
     returns: dictionary (string -> int)
     """
-    # TO DO ... <-- Remove this comment when you code this function
+
+    hand = hand.copy()  # shallow copy of dict
+
+    for letter in word:
+        hand[letter] -= 1
+
+    return hand
 
 
 #
