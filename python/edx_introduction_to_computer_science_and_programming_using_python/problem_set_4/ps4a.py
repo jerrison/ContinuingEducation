@@ -314,7 +314,7 @@ def playGame(wordList):
         if gameChoice == "n":
             hand = dealHand(HAND_SIZE)
         elif gameChoice == "r":
-            if hand = {}:
+            if hand == {}:
                 print("You have not played a hand yet. Please play a new hand"
                       + " first!")
                 continue
