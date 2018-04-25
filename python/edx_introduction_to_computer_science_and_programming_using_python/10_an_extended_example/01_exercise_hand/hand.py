@@ -27,7 +27,11 @@ class Hand(object):
         numVowels = self.HAND_SIZE // 3
 
         for i in range(numVowels):
+            # JL: pick a random vowel (with replacement?) from self.WOVELS
+            # (which is a string)
             x = self.VOWELS[random.randrange(0, len(self.VOWELS))]
+            # JL: It seems like it is indeed with replacement since key
+            # represents letter and value represents number of that letter
             self.hand[x] = self.hand.get(x, 0) + 1
 
         for i in range(numVowels, self.HAND_SIZE):
@@ -38,14 +42,15 @@ class Hand(object):
         '''
         Allows you to set a dummy hand. Useful for testing your implementation.
 
-        handString: A string of letters you wish to be in the hand. Length of this
-        string must be equal to self.HAND_SIZE.
+        handString: A string of letters you wish to be in the hand. Length of
+        this string must be equal to self.HAND_SIZE.
 
         This method converts sets the hand attribute to a dictionary
         containing the letters of handString.
         '''
-        assert len(handString) == self.HAND_SIZE, "Length of handString ({0}) must equal length of HAND_SIZE ({1})".format(
-            len(handString), self.HAND_SIZE)
+        assert len(handString) == self.HAND_SIZE,\
+            "Length of handString ({0}) must equal length of HAND_SIZE ({1})"\
+            .format(len(handString), self.HAND_SIZE)
         self.hand = {}
         for char in handString:
             self.hand[char] = self.hand.get(char, 0) + 1
@@ -83,17 +88,30 @@ class Hand(object):
         word: string
         returns: Boolean (if the word was or was not made)
         """
-        # Your code here
-        raise NotImplementedError()
+        # create dictionary to house word to be able to compare it with
+        # self.hand
+
+        wordDict = {}
+        for letter in word:
+            wordDict[letter] = wordDict.get(letter, 0) + 1
+
+        word_keys = sorted(wordDict.keys())
+        for letter in word_keys:
+            if wordDict[letter] <= self.hand.get(letter, 0):
+                self.hand[letter] -= wordDict[letter]
+            else:
+                return False
+
+        return True
 
 
 myHand = Hand(7)
 print(myHand)
 print(myHand.calculateLen())
 
-myHand.setDummyHand('aazzmsp')
-print(myHand)
-print(myHand.calculateLen())
+# myHand.setDummyHand('aazzmsp')
+# print(myHand)
+# print(myHand.calculateLen())
 
-myHand.update('za')
-print(myHand)
+# myHand.update('za')
+# print(myHand)
