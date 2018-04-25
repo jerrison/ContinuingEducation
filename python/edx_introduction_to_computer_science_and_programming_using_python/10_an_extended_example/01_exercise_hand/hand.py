@@ -98,9 +98,13 @@ class Hand(object):
         word_keys = sorted(wordDict.keys())
         for letter in word_keys:
             if wordDict[letter] <= self.hand.get(letter, 0):
-                self.hand[letter] -= wordDict[letter]
+                pass
             else:
                 return False
+
+        for letter in word_keys:
+            if wordDict[letter] <= self.hand.get(letter, 0):
+                self.hand[letter] -= wordDict[letter]
 
         return True
 
@@ -109,9 +113,9 @@ myHand = Hand(7)
 print(myHand)
 print(myHand.calculateLen())
 
-# myHand.setDummyHand('aazzmsp')
-# print(myHand)
-# print(myHand.calculateLen())
+myHand.setDummyHand('aazzmsp')
+print(myHand)
+print(myHand.calculateLen())
 
-# myHand.update('za')
-# print(myHand)
+myHand.update('za')
+print(myHand)
