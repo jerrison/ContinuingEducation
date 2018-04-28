@@ -110,17 +110,27 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to
                  another letter (string).
         '''
-        cipher = {}
-
+        code_dict = {}
         lowercase = string.ascii_lowercase
         uppercase = string.ascii_uppercase
 
-        for lower in lowercase:
-                cipher[lower] = max(25, lowercase.index(lower) + shift - 26)
+        for letter in lowercase:
+            if lowercase.index(letter) + shift > 25:
+                new_index = lowercase.index(letter) + shift - 26
+                code_dict[letter] = lowercase[new_index]
+            else:
+                new_index = lowercase.index(letter) + shift
+                code_dict[letter] = lowercase[new_index]
 
-        return cipher
-                
+        for letter in uppercase:
+            if uppercase.index(letter) + shift > 25:
+                new_index = uppercase.index(letter) + shift - 26
+                code_dict[letter] = uppercase[new_index]
+            else:
+                new_index = uppercase.index(letter) + shift
+                code_dict[letter] = uppercase[new_index]
 
+        return code_dict
 
     def apply_shift(self, shift):
         '''
@@ -134,7 +144,13 @@ class Message(object):
         Returns: the message text (string) in which every character is shifted
              down the alphabet by the input shift
         '''
-        pass  # delete this line and replace with your code here
+        shifted_message = ''
+        shifted_dict = self.build_shift_dict(shift)
+
+        for letter in self.get_message_text():
+            shifted_message += shifted_dict.get(letter, letter)
+
+        return shifted_message
 
 
 class PlaintextMessage(Message):
@@ -229,11 +245,11 @@ class CiphertextMessage(Message):
 
 
 # Example test case (PlaintextMessage)
-plaintext=PlaintextMessage('hello', 2)
+plaintext = PlaintextMessage('hello', 2)
 print('Expected Output: jgnnq')
 print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # Example test case (CiphertextMessage)
-ciphertext=CiphertextMessage('jgnnq')
+ciphertext = CiphertextMessage('jgnnq')
 print('Expected Output:', (24, 'hello'))
 print('Actual Output:', ciphertext.decrypt_message())
