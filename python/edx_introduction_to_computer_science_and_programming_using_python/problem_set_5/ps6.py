@@ -110,7 +110,17 @@ class Message(object):
         Returns: a dictionary mapping a letter (string) to
                  another letter (string).
         '''
-        pass  # delete this line and replace with your code here
+        cipher = {}
+
+        lowercase = string.ascii_lowercase
+        uppercase = string.ascii_uppercase
+
+        for lower in lowercase:
+                cipher[lower] = max(25, lowercase.index(lower) + shift - 26)
+
+        return cipher
+                
+
 
     def apply_shift(self, shift):
         '''
@@ -177,7 +187,8 @@ class PlaintextMessage(Message):
         attributes determined by shift (ie. self.encrypting_dict and
         message_text_encrypted).
 
-        shift (integer): the new shift that should be associated with this message.
+        shift (integer): the new shift that should be associated with this
+        message.
         0 <= shift < 26
 
         Returns: nothing
@@ -218,11 +229,11 @@ class CiphertextMessage(Message):
 
 
 # Example test case (PlaintextMessage)
-plaintext = PlaintextMessage('hello', 2)
+plaintext=PlaintextMessage('hello', 2)
 print('Expected Output: jgnnq')
 print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('jgnnq')
+ciphertext=CiphertextMessage('jgnnq')
 print('Expected Output:', (24, 'hello'))
 print('Actual Output:', ciphertext.decrypt_message())
