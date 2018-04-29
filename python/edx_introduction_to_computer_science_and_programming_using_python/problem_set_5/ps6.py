@@ -228,7 +228,7 @@ class CiphertextMessage(Message):
             self.message_text (string, determined by input text)
             self.valid_words (list, determined using helper function load_words)
         '''
-        pass  # delete this line and replace with your code here
+        Message.__init__(self, text)
 
     def decrypt_message(self):
         '''
@@ -246,15 +246,34 @@ class CiphertextMessage(Message):
         Returns: a tuple of the best shift value used to decrypt the message
         and the decrypted message text using that shift value
         '''
-        pass  # delete this line and replace with your code here
+        max_correct_words = 0
+
+        for i in range(0, 26):
+            new_message = self.apply_shift(i)
+            for word in new_message.split(" "):
+                correct_words = 0
+                if is_word(self.valid_words, word) == True:
+                    correct_words += 1
+            if correct_words > max_correct_words:
+                best_shift = i
+                best_message = new_message
+
+        return (best_shift, best_message)
 
 
 # Example test case (PlaintextMessage)
-plaintext = PlaintextMessage('hello', 2)
-print('Expected Output: jgnnq')
-print('Actual Output:', plaintext.get_message_text_encrypted())
+# plaintext = PlaintextMessage('hello', 2)
+# print('Expected Output: jgnnq')
+# print('Actual Output:', plaintext.get_message_text_encrypted())
 
 # Example test case (CiphertextMessage)
-ciphertext = CiphertextMessage('jgnnq')
-print('Expected Output:', (24, 'hello'))
-print('Actual Output:', ciphertext.decrypt_message())
+# ciphertext = CiphertextMessage('jgnnq')
+# print('Expected Output:', (24, 'hello'))
+# print('Actual Output:', ciphertext.decrypt_message())
+
+def decrypt_story():
+    """
+    Returns: a tuple containing the appropriate shift and the deciphered message
+    """
+    encripted_message = CiphertextMessage(get_story_string())
+    return encripted_message.decrypt_message()
