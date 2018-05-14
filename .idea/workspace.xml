@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfdfed9a-2000-41d0-bcbe-12e3554c29bf" name="Default" comment="" />
+    <list default="true" id="cfdfed9a-2000-41d0-bcbe-12e3554c29bf" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/edx_introduction_to_computer_science_and_programming_using_python/10_an_extended_example/01_exercise_hand/hand.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/edx_introduction_to_computer_science_and_programming_using_python/10_an_extended_example/01_exercise_hand/hand.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +35,8 @@
       <file leaf-file-name="hand.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/edx_introduction_to_computer_science_and_programming_using_python/10_an_extended_example/01_exercise_hand/hand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+            <state relative-caret-position="17">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -296,15 +300,22 @@
       <option name="project" value="LOCAL" />
       <updated>1526237009247</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="adding comment">
+      <created>1526260034252</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1526260034252</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.14791666" side_tool="true" visible="true" weight="0.32876712" />
-      <window_info anchor="right" x="0" y="0" width="310" height="677" id="Documentation" order="5" sideWeight="0.5009276" side_tool="true" visible="true" weight="0.41944444" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" id="Version Control" order="7" sideWeight="0.8520833" visible="true" weight="0.32876712" />
       <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49791667" weight="0.32876712" />
@@ -313,7 +324,7 @@
       <window_info content_ui="combo" id="Project" order="0" weight="0.13819444" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" x="418" y="192" width="604" height="539" id="SciView" order="4" sideWeight="0.49907234" weight="0.41944444" />
+      <window_info anchor="right" auto_hide="true" x="418" y="192" width="604" height="539" id="SciView" order="4" show_stripe_button="false" sideWeight="0.49907234" type="FLOATING" weight="0.41944444" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4976744" weight="0.4" />
@@ -330,7 +341,7 @@
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.91453487" weight="0.19702603" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" x="0" y="0" width="310" height="677" id="Documentation" order="5" sideWeight="0.5009276" side_tool="true" visible="true" weight="0.41944444" />
+      <window_info anchor="right" x="0" y="0" width="310" height="677" id="Documentation" order="5" sideWeight="0.5009276" side_tool="true" weight="0.41944444" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info active="true" anchor="bottom" id="Event Log" order="7" sideWeight="0.5013667" side_tool="true" visible="true" weight="0.12003058" />
@@ -686,8 +697,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/edx_introduction_to_computer_science_and_programming_using_python/10_an_extended_example/01_exercise_hand/hand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="7" column="11" lean-forward="true" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
