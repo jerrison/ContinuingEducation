@@ -2,6 +2,7 @@ import random
 
 # adding comment
 # adding second comment
+# adding third comment
 class Hand(object):
     def __init__(self, n):
         '''
