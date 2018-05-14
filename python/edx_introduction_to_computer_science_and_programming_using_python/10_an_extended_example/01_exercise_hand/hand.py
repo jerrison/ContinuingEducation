@@ -1,6 +1,7 @@
 import random
 
 # adding comment
+# adding second comment
 class Hand(object):
     def __init__(self, n):
         '''
