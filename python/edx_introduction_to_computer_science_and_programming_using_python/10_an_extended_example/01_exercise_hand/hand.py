@@ -1,5 +1,6 @@
 import random
 
+
 class Hand(object):
     def __init__(self, n):
         '''
