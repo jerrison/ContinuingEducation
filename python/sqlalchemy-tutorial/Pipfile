@@ -8,6 +8,8 @@ sqlalchemy = "*"
 "psycopg2" = "*"
 
 [dev-packages]
+"pep8" = "*"
+black = "*"
 
 [requires]
 python_version = "3.6"
