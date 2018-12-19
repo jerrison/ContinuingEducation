@@ -1,0 +1,27 @@
+# Notes on Chapter 1 of OpenIntro Statistics
+
+## Data Basics
+
+### Types of Variables
+
+There are two types of data:
+- Numerical
+    - Continuous
+    - Discrete
+- Categorical
+    - Nominal
+    - Ordinal
+
+### Experiments
+
+#### Four Design Principles
+
+##### Controlling
+Controlling for variable that we are not interested in. The book cites gives an
+example of an experiment where patients are given a pill and these patients
+consumed a different amount of water each time. To control for this difference,
+researches told the patients to drink the same amount of water. Another example
+is when
+##### Randomization
+##### Replication
+##### Blocking

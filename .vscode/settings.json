@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/jerrison/anaconda3/envs/fannie_mae_viz_a_thon/bin/python",
+    "python.pythonPath": "/Users/jerrison/anaconda3/bin/python",
     "window.zoomLevel": 0,
     "python.formatting.provider": "black",
 }
